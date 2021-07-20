@@ -4,13 +4,14 @@ import { TextArea, Stack, Center, NativeBaseProvider } from "native-base";
 const Post = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <NativeBaseProvider>
+      {/* <NativeBaseProvider>
         <Center flex={1}>
           <Stack space={4} w="90%">
             <TextArea h={20} placeholder="Text Area Placeholder" />
           </Stack>
         </Center>
-      </NativeBaseProvider>
+      </NativeBaseProvider> */}
+      <Text>This page is under development</Text>
     </View>
   );
 };

@@ -6,6 +6,7 @@ import {
   Dimensions,
   StyleSheet,
   Image,
+  Pressable,
 } from "react-native";
 import FeedContent from "../components/Feed/FeedContent";
 import BtnInteract from "../components/Feed/BtnInteract";
@@ -18,7 +19,6 @@ const Feed = () => {
       <FlatList
         data={itemData}
         keyExtractor={(item, index) => index.toString()}
-        // renderItem={({ item }) => <FeedContent itemData={item} />}
         renderItem={({ item }) => <FeedContent itemData={item} />}
         snapToAlignment={"start"}
         decelerationRate={"fast"}
@@ -65,7 +65,12 @@ const Feed = () => {
           </View>
         </View>
         <View style={styles.interact}>
-          <BtnInteract icon={"heart"} color={"white"} content={"120k"} />
+          <BtnInteract
+            icon={"heart"}
+            color={"white"}
+            content={"120k"}
+            onPress={() => alert("Pressed!")}
+          />
           <BtnInteract icon={"comment"} color={"white"} content={"69K"} />
           <BtnInteract icon={"shopping-cart"} color={"white"} content={"11K"} />
         </View>

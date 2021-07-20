@@ -3,9 +3,9 @@ import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
 const BtnInteract = (props) => {
-  const { color, content, icon } = props;
+  const { color, content, icon, onPress } = props;
   return (
-    <TouchableOpacity style={{ ...styles.touch }}>
+    <TouchableOpacity style={{ ...styles.touch }} onPress={onPress}>
       <Icon
         name={icon}
         color={color}

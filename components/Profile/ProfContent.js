@@ -37,7 +37,7 @@ const ProfContent = () => {
       </View>
       <View style={{ paddingHorizontal: 15, marginBottom: 25 }}>
         <Text style={{ color: "grey" }}>
-          Student at MIT, Aerospace Eng. Tech Enthusiast. Wakanda Forever
+          Student at MIT, Aerospace Eng. Tech Enthusiast. Test test 123
         </Text>
       </View>
       <View style={styles.group}>

@@ -6,10 +6,13 @@ import {
   FlatList,
   Dimensions,
   ScrollView,
+  Image,
 } from "react-native";
+import ExploreTop from "../components/Explore/ExploreTop";
+import PostCard from "../components/Post/PostCard";
 
 const data = [
-  { key: "A" },
+  { key: "Z" },
   { key: "B" },
   { key: "C" },
   { key: "D" },
@@ -40,14 +43,14 @@ const formatData = (data, numColumns) => {
 
 const numColumns = 2;
 
-const Notif = () => {
+const Explore = (props) => {
   const renderItem = ({ item, index }) => {
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
     }
     return (
       <View style={styles.item}>
-        <Text style={styles.itemText}>{item.key}</Text>
+        <PostCard />
       </View>
     );
   };
@@ -58,12 +61,16 @@ const Notif = () => {
       renderItem={renderItem}
       numColumns={numColumns}
       showsVerticalScrollIndicator={false}
-      ListHeaderComponent={<Text>Tello</Text>}
+      ListHeaderComponent={
+        <View>
+          <ExploreTop />
+        </View>
+      }
     />
   );
 };
 
-export default Notif;
+export default Explore;
 
 const styles = StyleSheet.create({
   container: {
@@ -73,7 +80,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   item: {
-    backgroundColor: "grey",
+    backgroundColor: "#e0e0e0",
     alignItems: "center",
     justifyContent: "center",
     flex: 1,
@@ -87,5 +94,12 @@ const styles = StyleSheet.create({
   },
   itemText: {
     color: "white",
+  },
+
+  itemImage: {
+    // resizeMode: "contain" ,
+    width: "100%",
+    height: "100%",
+    borderRadius: 20,
   },
 });

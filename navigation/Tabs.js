@@ -7,6 +7,8 @@ import Explore from "../screens/Explore";
 import Post from "../screens/Post";
 import Notif from "../screens/Notif";
 import Profile from "../screens/Profile";
+
+import Settings from "../screens/Settings";
 import Sign from "../screens/Sign";
 
 const Tab = createBottomTabNavigator();
@@ -85,7 +87,9 @@ const Tabs = () => {
       />
       <Tab.Screen
         name="Notif"
-        component={Notif}
+        // component={Settings}
+        // component={Notif}
+        component={Sign}
         options={{
           tabBarIcon: ({ focused, color }) => (
             <Icon name="inbox" size={25} color={color} />

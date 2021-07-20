@@ -1,15 +1,8 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  FlatList,
-  Dimensions,
-  ScrollView,
-  Image,
-} from "react-native";
-import PostTop from "./ProfTop";
-import PostContent from "./ProfContent";
+import { StyleSheet, Text, View, FlatList, Button } from "react-native";
+import TopBar from "../../navigation/TopBar";
+import ProfContent from "./ProfContent";
+import PostCard from "../Post/PostCard";
 
 const data = [
   { key: "A" },
@@ -23,7 +16,7 @@ const data = [
   { key: "I" },
   { key: "J" },
   { key: "K" },
-  // { key: "L" },
+  { key: "L" },
 ];
 
 const formatData = (data, numColumns) => {
@@ -43,17 +36,14 @@ const formatData = (data, numColumns) => {
 
 const numColumns = 2;
 
-const PostTile = () => {
+const ProfTile = () => {
   const renderItem = ({ item, index }) => {
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
     }
     return (
       <View style={styles.item}>
-        <Image
-          source={require("../../assets/images/1.jpg")}
-          style={styles.itemImage}
-        />
+        <PostCard />
         {/* <Text style={styles.itemText}>{item.key}</Text> */}
       </View>
     );
@@ -67,15 +57,15 @@ const PostTile = () => {
       showsVerticalScrollIndicator={false}
       ListHeaderComponent={
         <View>
-          <PostTop />
-          <PostContent />
+          <TopBar title="Profile" icon="cog" />
+          <ProfContent />
         </View>
       }
     />
   );
 };
 
-export default PostTile;
+export default ProfTile;
 
 const styles = StyleSheet.create({
   container: {
@@ -84,7 +74,7 @@ const styles = StyleSheet.create({
     // marginBottom: 90,
   },
   item: {
-    backgroundColor: "grey",
+    backgroundColor: "#e0e0e0",
     alignItems: "center",
     justifyContent: "center",
     flex: 1,
