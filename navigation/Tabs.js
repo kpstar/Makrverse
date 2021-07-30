@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, View, TouchableOpacity } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import Feed from "../screens/Feed";
@@ -7,15 +7,13 @@ import Explore from "../screens/Explore";
 import Post from "../screens/Post";
 import Notif from "../screens/Notif";
 import Profile from "../screens/Profile";
-
-import Settings from "../screens/Settings";
 import Sign from "../screens/Sign";
 
 const Tab = createBottomTabNavigator();
 const CustomTabBarButton = ({ children, onPress }) => (
   <TouchableOpacity
     style={{
-      top: -25,
+      // top: -20,
       margin: 10,
       justifyContent: "center",
       alignItems: "center",
@@ -29,8 +27,18 @@ const CustomTabBarButton = ({ children, onPress }) => (
         width: 60,
         height: 60,
         borderRadius: 20,
+        marginBottom: 20,
+        // width: 100,
+        // height: 80,
+        // borderLeftWidth: 20,
+        // borderRightWidth: 20,
+        // borderBottomWidth: 20,
+        // borderColor: "transparent",
+        // borderRadius: 40,
+        // borderBottomRightRadius: 50,
+        // borderBottomLeftRadius: 50,
         backgroundColor: "#316bea",
-        // ...styles.shadow,
+        ...styles.shadow,
       }}
     >
       {children}
@@ -42,16 +50,21 @@ const Tabs = () => {
     <Tab.Navigator
       tabBarOptions={{
         activeTintColor: "black",
+        keyboardHidesTabBar: true,
         showLabel: false,
         style: {
           position: "absolute",
-          bottom: 20,
-          left: 20,
-          right: 20,
-          elevation: 0,
-          backgroundColor: "#ffffff",
-          borderRadius: 15,
-          height: 70,
+          height: 80,
+          bottom: 10,
+          left: 10,
+          right: 10,
+          elevation: 50,
+          borderTopWidth: 20,
+          borderTopColor: "rgba(0, 0, 0, 0)",
+          borderTopLeftRadius: 40,
+          borderTopRightRadius: 40,
+          borderRadius: 20,
+          backgroundColor: "white",
           ...styles.shadow,
         },
       }}
@@ -64,6 +77,7 @@ const Tabs = () => {
             // <Icon name="home" size={25} color={color} />
             <Icon name="scroll" size={25} color={color} />
           ),
+          // tabBarVisible: false,
         }}
       />
       <Tab.Screen
@@ -83,13 +97,13 @@ const Tabs = () => {
             <Icon name="plus" size={25} color="white" />
           ),
           tabBarButton: (props) => <CustomTabBarButton {...props} />,
+          tabBarVisible: false,
         }}
       />
       <Tab.Screen
         name="Notif"
-        // component={Settings}
-        // component={Notif}
-        component={Sign}
+        // component={Sign}
+        component={Notif}
         options={{
           tabBarIcon: ({ focused, color }) => (
             <Icon name="inbox" size={25} color={color} />
@@ -117,9 +131,9 @@ const styles = StyleSheet.create({
       width: 0,
       height: 10,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.5,
-    elevation: 10,
+    shadowOpacity: 1,
+    shadowRadius: 1,
+    elevation: 50,
   },
 });
 

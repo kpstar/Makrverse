@@ -1,0 +1,80 @@
+export default [
+  {
+    doer: "Carlos",
+    comment: "This is very cool!",
+    like: 0,
+    seen: 1,
+  },
+  {
+    doer: "Chris",
+    comment: "This is Interesting!",
+    like: 1,
+    seen: 0,
+  },
+  {
+    doer: "Ferry",
+    comment: "Wow awesome!",
+    like: 0,
+    seen: 0,
+  },
+  {
+    doer: "Thadeo",
+    comment: "That's incredible!",
+    like: 1,
+    seen: 0,
+  },
+  {
+    doer: "Carlos",
+    comment: "This is very cool!",
+    like: 1,
+    seen: 1,
+  },
+  {
+    doer: "Chris",
+    comment: "This is Interesting!",
+    like: 0,
+    seen: 1,
+  },
+  {
+    doer: "Ferry",
+    comment: "Wow awesome!",
+    like: 0,
+    seen: 1,
+  },
+  {
+    doer: "Thadeo",
+    comment: "That's incredible!",
+    like: 1,
+    seen: 0,
+  },
+  {
+    doer: "Ferry",
+    comment: "Wow awesome!",
+    like: 1,
+    seen: 1,
+  },
+  {
+    doer: "Thadeo",
+    comment: "That's incredible!",
+    like: 0,
+    seen: 1,
+  },
+  {
+    doer: "Carlos",
+    comment: "This is very cool!",
+    like: 1,
+    seen: 1,
+  },
+  {
+    doer: "Chris",
+    comment: "This is Interesting!",
+    like: 0,
+    seen: 0,
+  },
+  {
+    doer: "Ferry",
+    comment: "Wow awesome!",
+    like: 0,
+    seen: 1,
+  },
+];

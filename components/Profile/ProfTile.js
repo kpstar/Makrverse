@@ -1,9 +1,7 @@
 import React from "react";
-import { StyleSheet, Text, View, FlatList, Button } from "react-native";
-import TopBar from "../../navigation/TopBar";
+import { StyleSheet, View, FlatList } from "react-native";
 import ProfContent from "./ProfContent";
 import PostCard from "../Post/PostCard";
-
 const data = [
   { key: "A" },
   { key: "B" },
@@ -57,10 +55,10 @@ const ProfTile = () => {
       showsVerticalScrollIndicator={false}
       ListHeaderComponent={
         <View>
-          <TopBar title="Profile" icon="cog" />
           <ProfContent />
         </View>
       }
+      ListFooterComponent={<View style={{ height: 200 }}></View>}
     />
   );
 };
@@ -71,7 +69,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    // marginBottom: 90,
   },
   item: {
     backgroundColor: "#e0e0e0",

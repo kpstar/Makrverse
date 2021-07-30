@@ -7,6 +7,7 @@ import {
   Dimensions,
   ScrollView,
   Image,
+  StatusBar,
 } from "react-native";
 import ExploreTop from "../components/Explore/ExploreTop";
 import PostCard from "../components/Post/PostCard";
@@ -63,9 +64,11 @@ const Explore = (props) => {
       showsVerticalScrollIndicator={false}
       ListHeaderComponent={
         <View>
+          <StatusBar backgroundColor="white" barStyle="dark-content" />
           <ExploreTop />
         </View>
       }
+      ListFooterComponent={<View style={{ height: 200 }}></View>}
     />
   );
 };

@@ -1,55 +1,75 @@
-// import * as React from "react";
-// import { Button, View, Text } from "react-native";
-// import { NavigationContainer } from "@react-navigation/native";
-// import { createStackNavigator } from "@react-navigation/stack";
-// import ProfTile from "../components/Profile/ProfTile";
-
-// function ProfHome({ navigation }) {
-//   return (
-//     <View style={{ flex: 1, backgroundColor: "white" }}>
-//       <ProfTile />
-//     </View>
-//   );
-// }
-
-// function Settings() {
-//   return (
-//     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-//       <Text>Settings Screen</Text>
-//     </View>
-//   );
-// }
-
-// const Stack = createStackNavigator();
-
-// function Profile() {
-//   return (
-//     <NavigationContainer independent={true}>
-//       <Stack.Navigator initialRouteName="ProfHome">
-//         <Stack.Screen name="ProfHomee" component={ProfHome} />
-//         <Stack.Screen name="Settings" component={Settings} />
-//       </Stack.Navigator>
-//     </NavigationContainer>
-//   );
-// }
-// export default Profile;
-
-import React from "react";
-import { View, StyleSheet, Text, Image } from "react-native";
+import * as React from "react";
+import { View, Text, StyleSheet } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import Sign from "./Sign";
 import ProfTile from "../components/Profile/ProfTile";
+import Settings from "../components/Profile/Settings";
+import TopBar from "../navigation/TopBar";
+import PostScroll from "../components/Post/PostScroll";
 
-const Profile = () => {
+function Prof({ navigation }) {
   return (
-    <View style={styles.container}>
+    <View style={styles.pageContainer}>
+      <TopBar
+        title="Profile"
+        icon="cog"
+        onPress={() => navigation.navigate("Settings")}
+      />
       <ProfTile />
     </View>
   );
-};
+}
+
+function Set({ navigation }) {
+  return (
+    <View style={styles.pageContainer}>
+      <TopBar
+        title="Settings"
+        icon="times"
+        onPress={() => navigation.navigate("Prof")}
+      />
+      <Settings />
+    </View>
+  );
+}
+
+function scroll({ navigation }) {
+  return (
+    <View style={styles.pageContainer}>
+      <PostScroll />
+    </View>
+  );
+}
+
+const Stack = createStackNavigator();
+
+function Profile() {
+  const loggedIn = 1;
+  if (loggedIn) {
+    return (
+      <NavigationContainer independent={true}>
+        <Stack.Navigator
+          initialRouteName="Prof"
+          screenOptions={{
+            headerShown: false,
+          }}
+        >
+          <Stack.Screen name="Prof" component={Prof} />
+          <Stack.Screen name="Settings" component={Set} />
+          <Stack.Screen name="Scroll" component={scroll} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
+  } else {
+    return <Sign />;
+  }
+}
 
 export default Profile;
 
 const styles = StyleSheet.create({
-  container: {
+  pageContainer: {
     flex: 1,
     backgroundColor: "white",
   },
