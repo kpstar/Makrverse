@@ -7,6 +7,7 @@ import ProfTile from "../components/Profile/ProfTile";
 import Settings from "../components/Profile/Settings";
 import TopBar from "../navigation/TopBar";
 import PostScroll from "../components/Post/PostScroll";
+import ProfStatsPage from "../components/Profile/ProfStatsPage";
 
 function Prof({ navigation }) {
   return (
@@ -34,7 +35,20 @@ function Set({ navigation }) {
   );
 }
 
-function scroll({ navigation }) {
+function Stats({ navigation }) {
+  return (
+    <View style={styles.pageContainer}>
+      <TopBar
+        title="Stats"
+        icon="times"
+        onPress={() => navigation.navigate("Prof")}
+      />
+      <ProfStatsPage />
+    </View>
+  );
+}
+
+function Post({ navigation }) {
   return (
     <View style={styles.pageContainer}>
       <PostScroll />
@@ -57,7 +71,8 @@ function Profile() {
         >
           <Stack.Screen name="Prof" component={Prof} />
           <Stack.Screen name="Settings" component={Set} />
-          <Stack.Screen name="Scroll" component={scroll} />
+          <Stack.Screen name="Stats" component={Stats} />
+          <Stack.Screen name="Post" component={Post} />
         </Stack.Navigator>
       </NavigationContainer>
     );

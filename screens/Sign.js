@@ -9,10 +9,6 @@ import {
 } from "react-native";
 
 const Sign = () => {
-  // state = {
-  //   email: "",
-  //   password: "",
-  // };
   return (
     <View style={styles.container}>
       <Image
@@ -42,7 +38,9 @@ const Sign = () => {
       <TouchableOpacity style={styles.signinBtn}>
         <Text style={styles.signinText}>Sign In</Text>
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity
+        style={{ width: 250, height: 50, alignItems: "center" }}
+      >
         <Text style={styles.signupText}>Signup</Text>
       </TouchableOpacity>
     </View>
@@ -66,7 +64,7 @@ const styles = StyleSheet.create({
   },
   inputView: {
     width: "80%",
-    backgroundColor: "#a6a7a8",
+    backgroundColor: "#e0e0e0",
     borderRadius: 25,
     height: 50,
     marginBottom: 20,
@@ -79,7 +77,7 @@ const styles = StyleSheet.create({
   },
   forgot: {
     color: "#316bea",
-    fontSize: 11,
+    fontSize: 13,
   },
   signinBtn: {
     width: "80%",

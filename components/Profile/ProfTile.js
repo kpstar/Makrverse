@@ -2,19 +2,15 @@ import React from "react";
 import { StyleSheet, View, FlatList } from "react-native";
 import ProfContent from "./ProfContent";
 import PostCard from "../Post/PostCard";
+import PostScroll from "../Post/PostScroll";
+
 const data = [
-  { key: "A" },
-  { key: "B" },
-  { key: "C" },
-  { key: "D" },
-  { key: "E" },
-  { key: "F" },
-  { key: "G" },
-  { key: "H" },
-  { key: "I" },
-  { key: "J" },
-  { key: "K" },
-  { key: "L" },
+  { key: "a", thumb: require("../../assets/images/1.png") },
+  { key: "c", thumb: require("../../assets/images/3.png") },
+  { key: "d", thumb: require("../../assets/images/4.png") },
+  { key: "h", thumb: require("../../assets/images/8.png") },
+  { key: "i", thumb: require("../../assets/images/9.png") },
+  { key: "j", thumb: require("../../assets/images/10.png") },
 ];
 
 const formatData = (data, numColumns) => {
@@ -41,7 +37,7 @@ const ProfTile = () => {
     }
     return (
       <View style={styles.item}>
-        <PostCard />
+        <PostCard image={item.thumb} />
         {/* <Text style={styles.itemText}>{item.key}</Text> */}
       </View>
     );

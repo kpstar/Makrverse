@@ -3,12 +3,12 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
 const ProfTop = (props) => {
-  const { title, icon, onPress } = props;
+  const { title, icon, onPress, color } = props;
   return (
     <View style={{ ...styles.container, ...styles.shadow }}>
       <Text style={styles.Title}>{title}</Text>
       <TouchableOpacity style={styles.iconTouch} onPress={onPress}>
-        <Icon name={icon} size={25} color="black" style={styles.icon} solid />
+        <Icon name={icon} size={25} color={color} solid />
       </TouchableOpacity>
     </View>
   );

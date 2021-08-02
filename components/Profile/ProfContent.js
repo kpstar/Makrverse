@@ -8,21 +8,21 @@ import {
   Dimensions,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
-import ProfBox from "./ProfBox";
+import ProfStats from "./ProfStats";
 
-const ProfContent = () => {
+const ProfContent = (props) => {
   return (
     <View style={styles.container}>
       <View style={{ paddingVertical: 20, ...styles.group }}>
         <View style={styles.group1a}>
           <Image
-            source={require("../../assets/icons/user3.jpg")}
+            source={require("../../assets/users/user1.jpg")}
             style={styles.userPic}
           />
         </View>
         <View style={styles.group1b}>
-          <Text style={styles.group1bTitle}>John Doe</Text>
-          <Text style={styles.group1bSub}>johndoe123</Text>
+          <Text style={styles.group1bTitle}>User Name</Text>
+          <Text style={styles.group1bSub}>userID</Text>
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <Icon
               name="clock"
@@ -41,12 +41,12 @@ const ProfContent = () => {
         </Text>
       </View>
       <View style={styles.group}>
-        <ProfBox title="Posts" count="69" icon="tools" />
-        <ProfBox title="Sold" count="120" icon="store" />
+        <ProfStats title="Followers" count="120K" icon="users" goto="fol" />
+        <ProfStats title="Sold" count="120" icon="store" goto="sol" />
       </View>
       <View style={styles.group}>
-        <ProfBox title="Followers" count="120K" icon="users" />
-        <ProfBox title="Challenges" count="13" icon="trophy" />
+        <ProfStats title="Posts" count="69" icon="tools" goto="pos" />
+        <ProfStats title="Challenges" count="13" icon="trophy" goto="cha" />
       </View>
     </View>
   );

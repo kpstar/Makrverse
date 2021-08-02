@@ -72,6 +72,7 @@ const Tabs = () => {
       <Tab.Screen
         name="Feed"
         component={Feed}
+        // component={testFeed}
         options={{
           tabBarIcon: ({ focused, color }) => (
             // <Icon name="home" size={25} color={color} />

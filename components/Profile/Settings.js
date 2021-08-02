@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -8,17 +8,48 @@ import {
   Image,
   ScrollView,
 } from "react-native";
+import * as ImagePicker from "expo-image-picker";
 
 const Settings = () => {
+  const [image, setImage] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      if (Platform.OS !== "web") {
+        const { status } =
+          await ImagePicker.requestMediaLibraryPermissionsAsync();
+        if (status !== "granted") {
+          alert("Sorry, we need camera roll permissions to make this work!");
+        }
+      }
+    })();
+  }, []);
+
+  const pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    console.log(result);
+
+    if (!result.cancelled) {
+      setImage(result.uri);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Text style={styles.title}>Your Profile</Text>
-        <TouchableOpacity style={{ alignItems: "center", marginBottom: 20 }}>
-          <Image
-            source={require("../../assets/icons/user3.jpg")}
-            style={styles.profPic}
-          />
+        <TouchableOpacity
+          style={{ alignItems: "center", marginBottom: 20 }}
+          onPress={pickImage}
+        >
+          {image && <Image source={{ uri: image }} style={styles.profPic} />}
+
           <Text style={{ color: "#316bea", fontSize: 18, fontWeight: "bold" }}>
             Change Profile Picture
           </Text>
@@ -31,6 +62,19 @@ const Settings = () => {
         <TextInput style={styles.input}>johndoe@email.com</TextInput>
         <Text style={styles.subtitle}>Password</Text>
         <TextInput style={styles.input}>qwertyuiop</TextInput>
+        <Text style={styles.title}>Shipping Address</Text>
+        <Text style={styles.subtitle}>Country</Text>
+        <TextInput style={styles.input}>Indonesia</TextInput>
+        <Text style={styles.subtitle}>City</Text>
+        <TextInput style={styles.input}>Jakarta</TextInput>
+        <Text style={styles.subtitle}>Address 1</Text>
+        <TextInput style={styles.input}>
+          Kecamatan Kembangan, Meruya Utara
+        </TextInput>
+        <Text style={styles.subtitle}>Address 2</Text>
+        <TextInput style={styles.input}>Kavling DKI Blok 29/2</TextInput>
+        <Text style={styles.subtitle}>Postal Code</Text>
+        <TextInput style={styles.input}>11620</TextInput>
         <TouchableOpacity style={styles.button}>
           <Text style={{ color: "#316bea", fontWeight: "bold", fontSize: 20 }}>
             Sign Out
