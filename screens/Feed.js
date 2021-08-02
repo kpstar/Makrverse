@@ -14,6 +14,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import FeedContent from "../components/Feed/FeedContent";
 import itemData from "../components/Feed/itemData";
 import Profile from "./Profile";
+import FeedTop from "../components/Feed/FeedTop";
 
 function prof({ navigation }) {
   return <Profile />;
@@ -29,6 +30,7 @@ const Feed = () => {
         networkActivityIndicatorVisible={true}
         // translucent={true}
       />
+      <FeedTop />
       <FlatList
         data={itemData}
         keyExtractor={(item, index) => index.toString()}

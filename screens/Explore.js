@@ -79,14 +79,6 @@ function Home({ navigation }) {
           <View>
             <StatusBar backgroundColor="white" barStyle="dark-content" />
             <ExploreTop />
-            <View style={{ flexDirection: "row", justifyContent: "center" }}>
-              <TouchableOpacity style={styles.type}>
-                <Text style={styles.typeText}>Inventions</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.type}>
-                <Text style={styles.typeText}>Challenges</Text>
-              </TouchableOpacity>
-            </View>
           </View>
         }
         ListFooterComponent={<View style={{ height: 200 }}></View>}
@@ -126,16 +118,6 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     position: "relative",
   },
-  type: {
-    padding: 10,
-    flex: 1,
-    alignItems: "center",
-    borderRadius: 15,
-    marginHorizontal: 10,
-    backgroundColor: "#e0e0e0",
-    margin: 10,
-  },
-  typeText: { fontSize: 15, color: "grey" },
   item: {
     backgroundColor: "#e0e0e0",
     alignItems: "center",

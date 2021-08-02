@@ -8,7 +8,6 @@ const data = [
   { key: "a", thumb: require("../../assets/images/1.png") },
   { key: "c", thumb: require("../../assets/images/3.png") },
   { key: "d", thumb: require("../../assets/images/4.png") },
-  { key: "h", thumb: require("../../assets/images/8.png") },
   { key: "i", thumb: require("../../assets/images/9.png") },
   { key: "j", thumb: require("../../assets/images/10.png") },
 ];
