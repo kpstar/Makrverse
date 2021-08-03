@@ -7,7 +7,7 @@ import Explore from "../screens/Explore";
 import Post from "../screens/Post";
 import Notif from "../screens/Notif";
 import Profile from "../screens/Profile";
-import Sign from "../screens/Sign";
+import TestScreen from "../screens/TestScreen";
 
 const Tab = createBottomTabNavigator();
 const CustomTabBarButton = ({ children, onPress }) => (
@@ -103,7 +103,7 @@ const Tabs = () => {
       />
       <Tab.Screen
         name="Notif"
-        // component={Sign}
+        // component={TestScreen}
         component={Notif}
         options={{
           tabBarIcon: ({ focused, color }) => (
@@ -113,7 +113,6 @@ const Tabs = () => {
       />
       <Tab.Screen
         name="Profile"
-        // component={Sign}
         component={Profile}
         options={{
           tabBarIcon: ({ focused, color }) => (
