@@ -20,7 +20,7 @@ function prof({ navigation }) {
   return <Profile />;
 }
 
-const Feed = () => {
+const Feed = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <StatusBar

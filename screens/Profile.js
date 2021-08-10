@@ -59,7 +59,7 @@ function Post({ navigation }) {
 const Stack = createStackNavigator();
 
 function Profile() {
-  const loggedIn = 0;
+  const loggedIn = 1;
   if (loggedIn) {
     return (
       <NavigationContainer independent={true}>

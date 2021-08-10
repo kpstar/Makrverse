@@ -88,7 +88,7 @@ function Home({ navigation }) {
 }
 
 const Stack = createStackNavigator();
-const Explore = (props) => {
+const Explore = ({ props, navigation }) => {
   return (
     <NavigationContainer independent={true}>
       <Stack.Navigator

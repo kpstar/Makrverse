@@ -1,101 +1,61 @@
-import React, { useState, useEffect } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  Dimensions,
-  StatusBar,
-  Image,
-} from "react-native";
-import { Camera } from "expo-camera";
+import * as React from "react";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import PostCam from "../components/PostMenu/PostCam";
+import PostEdit from "../components/PostMenu/PostEdit";
 import Icon from "react-native-vector-icons/FontAwesome5";
-import { LinearGradient } from "expo-linear-gradient";
+import { zIndex } from "styled-system";
 
-const Post = () => {
-  const [hasPermission, setHasPermission] = useState(null);
-  const [type, setType] = useState(Camera.Constants.Type.back);
-
-  useEffect(() => {
-    (async () => {
-      const { status } = await Camera.requestPermissionsAsync();
-      setHasPermission(status === "granted");
-    })();
-  }, []);
-
-  if (hasPermission === null) {
-    return <View />;
-  }
-  if (hasPermission === false) {
-    return <Text>No access to camera</Text>;
-  }
+function Cam({ navigation, props }) {
   return (
-    <View style={styles.container}>
-      <StatusBar
-        barStyle="light-content"
-        hidden={false}
-        backgroundColor="black"
-        networkActivityIndicatorVisible={true}
-      />
-      <View style={styles.btnContainer}>
-        <TouchableOpacity onPress={() => Camera.Constants.FlashMode}>
-          <Icon
-            name="bolt"
-            size={25}
-            color="white"
-            style={{ marginHorizontal: 10, position: "absolute", right: 0 }}
-          />
-        </TouchableOpacity>
-      </View>
-      <Camera style={styles.camera} type={type}></Camera>
-      <View
+    <View style={styles.pageContainer}>
+      <PostCam />
+    </View>
+  );
+}
+function Edit({ navigation }) {
+  return (
+    <View style={styles.pageContainer}>
+      <PostEdit />
+    </View>
+  );
+}
+
+const Stack = createStackNavigator();
+const Post = ({ navigation }) => {
+  return (
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: "black",
+      }}
+    >
+      <TouchableOpacity
+        onPress={() => navigation.goBack()}
         style={{
-          bottom: 0,
-          ...styles.btnContainer,
+          position: "absolute",
+          zIndex: 1,
+          right: "10%",
+          marginVertical: "5%",
         }}
       >
-        <TouchableOpacity>
-          <Image
-            source={require("../assets/images/1.png")}
-            style={styles.imagePicker}
-          />
-        </TouchableOpacity>
-        <View
-          style={{
-            width: 70,
-            height: 70,
-            borderRadius: 100,
-            backgroundColor: "#316bea",
-            justifyContent: "center",
-            alignItems: "center",
+        <Icon name="times" size={30} color="white" />
+      </TouchableOpacity>
+      <NavigationContainer
+        independent={true}
+        style={{ position: "relative", flex: 1 }}
+      >
+        <Stack.Navigator
+          initialRouteName="Cam"
+          screenOptions={{
+            headerShown: false,
           }}
         >
-          <TouchableOpacity
-            style={{
-              width: 60,
-              height: 60,
-              borderRadius: 100,
-              backgroundColor: "white",
-            }}
-          />
-        </View>
-        <TouchableOpacity
-          onPress={() => {
-            setType(
-              type === Camera.Constants.Type.back
-                ? Camera.Constants.Type.front
-                : Camera.Constants.Type.back
-            );
-          }}
-        >
-          <Icon
-            name="sync"
-            size={25}
-            color="white"
-            style={{ marginHorizontal: 10 }}
-          />
-        </TouchableOpacity>
-      </View>
+          <Stack.Screen name="Cam" component={Cam} />
+          <Stack.Screen name="Edit" component={Edit} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </View>
   );
 };
@@ -103,28 +63,8 @@ const Post = () => {
 export default Post;
 
 const styles = StyleSheet.create({
-  container: {
+  pageContainer: {
     flex: 1,
-  },
-  btnContainer: {
-    position: "absolute",
-    width: "100%",
-    zIndex: 1,
-    padding: 20,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  camera: {
-    position: "relative",
-    width: 600,
-    // width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height,
-    // height: Dimensions.get("window").height - 160,
-  },
-  imagePicker: {
-    width: 50,
-    height: 50,
-    borderRadius: 15,
+    backgroundColor: "white",
   },
 });

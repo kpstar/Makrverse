@@ -83,7 +83,7 @@ function SignIn({ navigation }) {
       <TouchableOpacity
         style={{ width: 250, height: 50, alignItems: "center" }}
       >
-        <Text style={styles.signupText}>Signup</Text>
+        <Text style={styles.signupText}>SignupwqhTLL8tySg8H4</Text>
       </TouchableOpacity>
     </View>
   );

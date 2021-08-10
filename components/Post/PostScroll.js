@@ -9,8 +9,6 @@ import {
   Pressable,
   StatusBar,
 } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
 import FeedContent from "../Feed/FeedContent";
 import itemData from "../Feed/itemData";
 // import Profile from "../../screens/Profile";

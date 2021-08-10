@@ -11,7 +11,8 @@ import {
 } from "react-native";
 import { Video, AVPlaybackStatus } from "expo-av";
 import BtnInteract from "../../components/Feed/BtnInteract";
-import Gradient from "../../navigation/Gradient";
+// import Gradient from "../../navigation/Gradient";
+import { LinearGradient } from "expo-linear-gradient";
 
 const FeedContent = (props) => {
   const {
@@ -28,89 +29,97 @@ const FeedContent = (props) => {
   const [status, setStatus] = React.useState({});
   return (
     <View style={styles.container}>
-      <View style={{ flex: 1, position: "relative" }}>
-        {/* <ImageBackground source={postPic} style={styles.image} /> */}
-        <TouchableOpacity
-          activeOpacity={1}
-          onPress={() =>
-            status.isPlaying
-              ? video.current.pauseAsync()
-              : video.current.playAsync()
-          }
-        >
-          <Video
-            ref={video}
-            style={styles.video}
-            source={postVid}
-            // source={require("../../assets/vids/vid1.mp4")}
-            useNativeControls="false"
-            resizeMode="contain"
-            isLooping
-            onPlaybackStatusUpdate={(status) => setStatus(() => status)}
-            // shouldPlay
-            // onReadyForDisplay={() =>
-            // status.isPlaying
-            //     ? video.current.pauseAsync()
-            //     : video.current.playAsync()
-            // }
-          />
-        </TouchableOpacity>
-        {/* Interact Section */}
-        <View
-          style={{
-            position: "absolute",
-            zIndex: 10,
-            flexDirection: "row",
-            justifyContent: "space-between",
-            width: "100%",
-            bottom: "13%",
-          }}
-        >
-          <View style={styles.user}>
+      {/* <ImageBackground source={postPic} style={styles.image} /> */}
+      <TouchableOpacity
+        activeOpacity={1}
+        onPress={() =>
+          status.isPlaying
+            ? video.current.pauseAsync()
+            : video.current.playAsync()
+        }
+      >
+        <Video
+          ref={video}
+          style={styles.video}
+          source={postVid}
+          // source={require("../../assets/vids/vid1.mp4")}
+          useNativeControls="false"
+          resizeMode="contain"
+          isLooping
+          onPlaybackStatusUpdate={(status) => setStatus(() => status)}
+          // shouldPlay
+          // onReadyForDisplay={() =>
+          // status.isPlaying
+          //     ? video.current.pauseAsync()
+          //     : video.current.playAsync()
+          // }
+        />
+      </TouchableOpacity>
+      {/* Interact Section */}
+
+      <LinearGradient
+        colors={["transparent", "black"]}
+        //   start={{ x: 0, y: 0.1 }}
+        //   end={{ x: 0, y: 3.5 }}
+        start={{ x: 0, y: 0.2 }}
+        end={{ x: 0, y: 1 }}
+        style={{
+          // height: 20 * vh,
+          // height: 200,
+          // width: "100%",
+          // position: "absolute",
+          // bottom: 100,
+          // backgroundColor: "red",
+          // flex: 2,
+          position: "absolute",
+          zIndex: 10,
+          flexDirection: "row",
+          justifyContent: "space-between",
+          width: "100%",
+          bottom: "13%",
+        }}
+      >
+        <View style={styles.user}>
+          <Text
+            style={{
+              fontSize: 15,
+              color: "white",
+              marginBottom: 10,
+              ...styles.shadow,
+            }}
+          >
+            {postName}
+          </Text>
+          <TouchableOpacity
+            style={{ flexDirection: "row", alignItems: "center" }}
+          >
+            <Image source={userPic} style={styles.userPic} />
             <Text
               style={{
-                fontSize: 15,
+                fontWeight: "bold",
+                fontSize: 16,
                 color: "white",
-                marginBottom: 10,
+                marginRight: 10,
                 ...styles.shadow,
               }}
             >
-              {postName}
+              {userName}
             </Text>
-            <TouchableOpacity
-              style={{ flexDirection: "row", alignItems: "center" }}
-            >
-              <Image source={userPic} style={styles.userPic} />
-              <Text
-                style={{
-                  fontWeight: "bold",
-                  fontSize: 16,
-                  color: "white",
-                  marginRight: 10,
-                  ...styles.shadow,
-                }}
-              >
-                {userName}
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.interact}>
-            <BtnInteract
-              icon={"heart"}
-              color={"white"}
-              content={likes}
-              onPress={() => alert("Added to Favorites!")}
-            />
-            <BtnInteract icon={"comment"} color={"white"} content={comments} />
-            <BtnInteract
-              icon={"shopping-cart"}
-              color={"white"}
-              content={sold}
-            />
-          </View>
+          </TouchableOpacity>
         </View>
-      </View>
-      <Gradient />
+        <View style={styles.interact}>
+          <BtnInteract
+            icon={"heart"}
+            color={"white"}
+            content={likes}
+            onPress={() => alert("Added to Favorites!")}
+          />
+          <BtnInteract icon={"comment"} color={"white"} content={comments} />
+          <BtnInteract icon={"shopping-cart"} color={"white"} content={sold} />
+        </View>
+      </LinearGradient>
+      <View style={{}}></View>
+      {/* <Gradient /> */}
     </View>
   );
 };
@@ -121,6 +130,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: "100%",
+    position: "relative",
     backgroundColor: "black",
     height: Dimensions.get("screen").height,
   },

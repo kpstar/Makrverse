@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
-  View,
   TextInput,
   TouchableOpacity,
   Image,
@@ -41,47 +40,45 @@ const Settings = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <Text style={styles.title}>Your Profile</Text>
-        <TouchableOpacity
-          style={{ alignItems: "center", marginBottom: 20 }}
-          onPress={pickImage}
-        >
-          {image && <Image source={{ uri: image }} style={styles.profPic} />}
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+      <Text style={styles.title}>Your Profile</Text>
+      <TouchableOpacity
+        style={{ alignItems: "center", marginBottom: 20 }}
+        onPress={pickImage}
+      >
+        {image && <Image source={{ uri: image }} style={styles.profPic} />}
 
-          <Text style={{ color: "#316bea", fontSize: 18, fontWeight: "bold" }}>
-            Change Profile Picture
-          </Text>
-        </TouchableOpacity>
-        <Text style={styles.subtitle}>Name</Text>
-        <TextInput style={styles.input}>John Doe</TextInput>
-        <Text style={styles.subtitle}>Username</Text>
-        <TextInput style={styles.input}>johndoe</TextInput>
-        <Text style={styles.subtitle}>Email</Text>
-        <TextInput style={styles.input}>johndoe@email.com</TextInput>
-        <Text style={styles.subtitle}>Password</Text>
-        <TextInput style={styles.input}>qwertyuiop</TextInput>
-        <Text style={styles.title}>Shipping Address</Text>
-        <Text style={styles.subtitle}>Country</Text>
-        <TextInput style={styles.input}>Indonesia</TextInput>
-        <Text style={styles.subtitle}>City</Text>
-        <TextInput style={styles.input}>Jakarta</TextInput>
-        <Text style={styles.subtitle}>Address 1</Text>
-        <TextInput style={styles.input}>
-          Kecamatan Kembangan, Meruya Utara
-        </TextInput>
-        <Text style={styles.subtitle}>Address 2</Text>
-        <TextInput style={styles.input}>Kavling DKI Blok 29/2</TextInput>
-        <Text style={styles.subtitle}>Postal Code</Text>
-        <TextInput style={styles.input}>11620</TextInput>
-        <TouchableOpacity style={styles.button}>
-          <Text style={{ color: "#316bea", fontWeight: "bold", fontSize: 20 }}>
-            Sign Out
-          </Text>
-        </TouchableOpacity>
-      </ScrollView>
-    </View>
+        <Text style={{ color: "#316bea", fontSize: 18, fontWeight: "bold" }}>
+          Change Profile Picture
+        </Text>
+      </TouchableOpacity>
+      <Text style={styles.subtitle}>Name</Text>
+      <TextInput style={styles.input}>John Doe</TextInput>
+      <Text style={styles.subtitle}>Username</Text>
+      <TextInput style={styles.input}>johndoe</TextInput>
+      <Text style={styles.subtitle}>Email</Text>
+      <TextInput style={styles.input}>johndoe@email.com</TextInput>
+      <Text style={styles.subtitle}>Password</Text>
+      <TextInput style={styles.input}>qwertyuiop</TextInput>
+      <Text style={styles.title}>Shipping Address</Text>
+      <Text style={styles.subtitle}>Country</Text>
+      <TextInput style={styles.input}>Indonesia</TextInput>
+      <Text style={styles.subtitle}>City</Text>
+      <TextInput style={styles.input}>Jakarta</TextInput>
+      <Text style={styles.subtitle}>Address 1</Text>
+      <TextInput style={styles.input}>
+        Kecamatan Kembangan, Meruya Utara
+      </TextInput>
+      <Text style={styles.subtitle}>Address 2</Text>
+      <TextInput style={styles.input}>Kavling DKI Blok 29/2</TextInput>
+      <Text style={styles.subtitle}>Postal Code</Text>
+      <TextInput style={styles.input}>11620</TextInput>
+      <TouchableOpacity style={styles.button}>
+        <Text style={{ color: "#316bea", fontWeight: "bold", fontSize: 20 }}>
+          Sign Out
+        </Text>
+      </TouchableOpacity>
+    </ScrollView>
   );
 };
 
