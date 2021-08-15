@@ -16,8 +16,22 @@ import { useNavigation } from "@react-navigation/native";
 import PostItem from "./PostItem";
 
 const PostCam = ({ props }) => {
+  //ItemList
+  const [task, setTask] = useState();
+  const [taskItems, setTaskItems] = useState([]);
+  const handleAddTask = () => {
+    // Keyboard.dismiss();
+    setTaskItems([...taskItems, task]);
+    setTask(null);
+  };
+  const completeTask = (index) => {
+    let itemsCopy = [...taskItems];
+    itemsCopy.splice(index, 1);
+    setTaskItems(itemsCopy);
+  };
+
   // Alert
-  // const [showItem, setShowItem] = useState(true);
+  // const [showItem, setShowItem] = uskeState(true);
   const showConfirmDialog = () => {
     return Alert.alert(
       "Delete Item?",
@@ -35,20 +49,6 @@ const PostCam = ({ props }) => {
         },
       ]
     );
-  };
-
-  //ItemList
-  const [task, setTask] = useState();
-  const [taskItems, setTaskItems] = useState([]);
-  const handleAddTask = () => {
-    // Keyboard.dismiss();
-    setTaskItems([...taskItems, task]);
-    setTask(null);
-  };
-  const completeTask = (index) => {
-    let itemsCopy = [...taskItems];
-    itemsCopy.splice(index, 1);
-    setTaskItems(itemsCopy);
   };
   // Navigation
   const navigation = useNavigation();
@@ -146,7 +146,7 @@ const PostCam = ({ props }) => {
             horizontal
             // data={itemData}
             // keyExtractor={(item, index) => index.toString()}
-            renderItem={({ item }) => <camItem itemData={item} />}
+            renderItem={({ item }) => <PostItem itemData={item} />}
             showsVerticalScrollIndicator={false}
             style={{ position: "relative" }}
           /> */}

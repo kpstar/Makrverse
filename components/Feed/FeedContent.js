@@ -90,22 +90,35 @@ const FeedContent = (props) => {
           >
             {postName}
           </Text>
-          <TouchableOpacity
-            style={{ flexDirection: "row", alignItems: "center" }}
-          >
-            <Image source={userPic} style={styles.userPic} />
-            <Text
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <TouchableOpacity
+              style={{ flexDirection: "row", alignItems: "center" }}
+            >
+              <Image source={userPic} style={styles.userPic} />
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  fontSize: 16,
+                  color: "white",
+                  marginRight: 10,
+                  ...styles.shadow,
+                }}
+              >
+                {userName}
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
               style={{
-                fontWeight: "bold",
-                fontSize: 16,
-                color: "white",
-                marginRight: 10,
-                ...styles.shadow,
+                backgroundColor: "#FFFFFFa0",
+                height: "90%",
+                width: "35%",
+                borderRadius: 15,
+                marginLeft: 10,
               }}
             >
-              {userName}
-            </Text>
-          </TouchableOpacity>
+              <Text style={{ fontSize: "10%", color: "white" }}>Follow</Text>
+            </TouchableOpacity>
+          </View>
         </View>
         <View style={styles.interact}>
           <BtnInteract
