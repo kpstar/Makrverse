@@ -90,35 +90,22 @@ const FeedContent = (props) => {
           >
             {postName}
           </Text>
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <TouchableOpacity
-              style={{ flexDirection: "row", alignItems: "center" }}
-            >
-              <Image source={userPic} style={styles.userPic} />
-              <Text
-                style={{
-                  fontWeight: "bold",
-                  fontSize: 16,
-                  color: "white",
-                  marginRight: 10,
-                  ...styles.shadow,
-                }}
-              >
-                {userName}
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
+          <TouchableOpacity
+            style={{ flexDirection: "row", alignItems: "center" }}
+          >
+            <Image source={userPic} style={styles.userPic} />
+            <Text
               style={{
-                backgroundColor: "#FFFFFFa0",
-                height: "90%",
-                width: "35%",
-                borderRadius: 15,
-                marginLeft: 10,
+                fontWeight: "bold",
+                fontSize: 16,
+                color: "white",
+                marginRight: 10,
+                ...styles.shadow,
               }}
             >
-              <Text style={{ fontSize: "10%", color: "white" }}>Follow</Text>
-            </TouchableOpacity>
-          </View>
+              {userName}
+            </Text>
+          </TouchableOpacity>
         </View>
         <View style={styles.interact}>
           <BtnInteract
@@ -131,7 +118,6 @@ const FeedContent = (props) => {
           <BtnInteract icon={"shopping-cart"} color={"white"} content={sold} />
         </View>
       </LinearGradient>
-      <View style={{}}></View>
       {/* <Gradient /> */}
     </View>
   );
@@ -145,12 +131,13 @@ const styles = StyleSheet.create({
     width: "100%",
     position: "relative",
     backgroundColor: "black",
+    // backgroundColor: "white",
     height: Dimensions.get("screen").height,
   },
-  // image: {
-  //   width: "100%",
-  //   height: "100%",
-  // },
+  image: {
+    width: "100%",
+    height: "100%",
+  },
   video: {
     height: Dimensions.get("screen").height,
     bottom: 50,

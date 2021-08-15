@@ -1,55 +1,17 @@
 // import React from "react";
-// import { NavigationContainer } from "@react-navigation/native";
-// import { createStackNavigator } from "@react-navigation/stack";
-// import Tabs from "./navigation/Tabs";
+// import { StyleSheet, Text, View } from "react-native";
 
-// functon Home({navigation}) {
-//   return(
-//     <NavigationContainer  independent={true}>
-//       <Tabs />
-//     </NavigationContainer>
-//   );
-// }
-
-// functon Post({navigation}) {
-//   return(<View></View>);
-// }
-
-// const Stack = createStackNavigator();
-// const App() {
+// const App = () => {
 //   return (
-
-// <NavigationContainer>
-// <Stack.Navigator
-//   initialRouteName="Home"
-//   screenOptions={{
-//     headerShown: false,
-//   }}
-// >
-//   <Stack.Screen name="Home" component={Home} />
-//   <Stack.Screen name="Post" component={Post} />
-// </Stack.Navigator>
-// </NavigationContainer>
+//     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+//       <Text>Hello test</Text>
+//     </View>
 //   );
-// }
+// };
 
-// export default App
+// export default App;
 
-// const styles = StyleSheet.create({})
-
-// =============================================
-
-// import React from "react";
-// import { NavigationContainer } from "@react-navigation/native";
-// import Tabs from "./navigation/Tabs";
-
-// export default function App() {
-//   return (
-//     <NavigationContainer>
-//       <Tabs />
-//     </NavigationContainer>
-//   );
-// }
+// const styles = StyleSheet.create({});
 
 import React from "react";
 import { StyleSheet, View, TouchableOpacity } from "react-native";
@@ -102,8 +64,9 @@ const App = () => {
   return (
     <NavigationContainer name="base">
       <Tab.Navigator
+        initialRouteName="Profile"
         // backBehavior="history"
-        name="root"
+        // name="root"
         tabBarOptions={{
           activeTintColor: "black",
           keyboardHidesTabBar: true,
