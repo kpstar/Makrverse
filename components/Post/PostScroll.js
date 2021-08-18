@@ -7,7 +7,6 @@ import {
   StyleSheet,
   Image,
   Pressable,
-  StatusBar,
 } from "react-native";
 import FeedContent from "../Feed/FeedContent";
 import itemData from "../Feed/itemData";
@@ -20,13 +19,6 @@ function prof({ navigation }) {
 const Feed = () => {
   return (
     <View style={styles.container}>
-      <StatusBar
-        barStyle="light-content"
-        hidden={false}
-        backgroundColor="black"
-        networkActivityIndicatorVisible={true}
-        // translucent={true}
-      />
       <FlatList
         data={itemData}
         keyExtractor={(item, index) => index.toString()}

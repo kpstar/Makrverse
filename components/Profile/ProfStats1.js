@@ -7,30 +7,25 @@ const ProfBox = (props) => {
   const { title, icon, count } = props;
   const navigation = useNavigation();
   return (
-    <TouchableOpacity
-      style={styles.container}
-      onPress={() => navigation.navigate("Stats")}
-    >
+    <View style={styles.container}>
       <Icon
         name={icon}
-        size={20}
+        size={40}
         color="#316bea"
         solid
-        style={{ marginLeft: "10%", marginRight: "5%" }}
+        style={{ marginBottom: "10%" }}
       />
-      <View style={{ flexDirection: "column", left: 10 }}>
-        <Text
-          style={{
-            fontSize: 17,
-            fontWeight: "bold",
-            color: "black",
-          }}
-        >
-          {count}
-        </Text>
-        <Text style={{ fontSize: 15, color: "grey" }}>{title}</Text>
-      </View>
-    </TouchableOpacity>
+      <Text
+        style={{
+          fontSize: 17,
+          fontWeight: "bold",
+          color: "black",
+        }}
+      >
+        {count}
+      </Text>
+      <Text style={{ fontSize: 15, color: "grey" }}>{title}</Text>
+    </View>
   );
 };
 
@@ -43,10 +38,10 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 20,
     width: "100%",
-    padding: "7%",
+    padding: "5%",
     marginBottom: "5%",
     alignItems: "center",
-    justifyContent: "flex-start",
-    flexDirection: "row",
+    justifyContent: "center",
+    flexDirection: "column",
   },
 });

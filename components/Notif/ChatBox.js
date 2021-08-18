@@ -1,14 +1,17 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
+// import { useNavigation } from "@react-navigation/native";
 
-const ChatBox = (props) => {
+const ChatBox = (props, navigation1) => {
   const { doer, pic, seen } = props.chatData;
+  // const navigation = useNavigation();
   return (
     <TouchableOpacity
       style={{
         ...styles.container,
         backgroundColor: seen ? "#e0e0e0" : "#bedaf4",
       }}
+      onPress={() => navigation1.navigate("ChatScreen1")}
     >
       <Image source={pic} style={styles.userPic} />
       <Text style={styles.text}>

@@ -1,17 +1,14 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-const ProfStatsPage = (props) => {
-  const { goto } = props;
-  // if ({ goto } == "pos") {
+const ChatScreen = () => {
   return (
     <View>
-      <Text>test</Text>
+      <Text>chat screen</Text>
     </View>
   );
-  // }
 };
 
-export default ProfStatsPage;
+export default ChatScreen;
 
 const styles = StyleSheet.create({});

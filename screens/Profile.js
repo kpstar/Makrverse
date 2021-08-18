@@ -2,8 +2,10 @@ import * as React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import Icon from "react-native-vector-icons/FontAwesome5";
 import Sign from "./Sign";
 import ProfTile from "../components/Profile/ProfTile";
+import ProfPost from "../components/Profile/ProfPost";
 import Settings from "../components/Profile/Settings";
 import TopBar from "../navigation/TopBar";
 import PostScroll from "../components/Post/PostScroll";
@@ -51,6 +53,20 @@ function Stats({ navigation }) {
 function Post({ navigation }) {
   return (
     <View style={styles.pageContainer}>
+      <Icon
+        name="times"
+        size={25}
+        color="white"
+        solid
+        style={{
+          position: "absolute",
+          zIndex: 2,
+          marginVertical: "10%",
+          marginHorizontal: "2%",
+          right: 0,
+        }}
+        onPress={() => navigation.navigate("Prof")}
+      />
       <PostScroll />
     </View>
   );

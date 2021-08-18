@@ -1,18 +1,3 @@
-// import React from "react";
-// import { StyleSheet, Text, View } from "react-native";
-
-// const Post = () => {
-//   return (
-//     <View>
-//       <Text>temp test screen</Text>
-//     </View>
-//   );
-// };
-
-// export default Post;
-
-// const styles = StyleSheet.create({});
-
 import * as React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";

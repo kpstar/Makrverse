@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import { useNavigation } from "@react-navigation/native";
 
-const ProfBox = (props) => {
+const PostCat = (props) => {
   const { title, icon, count } = props;
   const navigation = useNavigation();
   return (
@@ -14,11 +14,12 @@ const ProfBox = (props) => {
       <Icon
         name={icon}
         size={20}
-        color="#316bea"
+        // color="#316bea"
+        color="red"
         solid
-        style={{ marginLeft: "10%", marginRight: "5%" }}
+        style={{ marginRight: 20, left: "40%" }}
       />
-      <View style={{ flexDirection: "column", left: 10 }}>
+      <View style={{ flexDirection: "column", left: "35%" }}>
         <Text
           style={{
             fontSize: 17,
@@ -34,17 +35,16 @@ const ProfBox = (props) => {
   );
 };
 
-export default ProfBox;
+export default PostCat;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     borderColor: "#c1c1c1",
     borderWidth: 2,
     borderRadius: 20,
-    width: "100%",
-    padding: "7%",
-    marginBottom: "5%",
+    width: 170,
+    padding: 10,
+    marginBottom: 10,
     alignItems: "center",
     justifyContent: "flex-start",
     flexDirection: "row",

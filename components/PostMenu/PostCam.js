@@ -5,7 +5,6 @@ import {
   TouchableOpacity,
   StyleSheet,
   Dimensions,
-  StatusBar,
   Pressable,
   Alert,
   FlatList,
@@ -71,12 +70,6 @@ const PostCam = ({ props }) => {
   }
   return (
     <View style={styles.container}>
-      <StatusBar
-        barStyle="light-content"
-        hidden={false}
-        backgroundColor="black"
-        networkActivityIndicatorVisible={true}
-      />
       {/* Top Area */}
       <View
         style={{

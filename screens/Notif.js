@@ -7,12 +7,14 @@ import NotifBox from "../components/Notif/NotifBox";
 import notifData from "../components/Notif/notifData";
 import Sign from "./Sign";
 import Chat from "./Chat";
+import ChatScreen from "./ChatScreen";
+import { useNavigation } from "@react-navigation/native";
 
 function Login() {
   return <Sign />;
 }
 
-function Chats({ navigation }) {
+function Chat1({ navigation }) {
   return (
     <View style={styles.pageContainer}>
       <TopBar
@@ -25,15 +27,29 @@ function Chats({ navigation }) {
   );
 }
 
+function ChatScreen1({ navigation }) {
+  // const navigation1 = useNavigation();
+  return (
+    <View style={styles.pageContainer}>
+      <TopBar
+        title="John"
+        icon="times"
+        onPress={() => navigation.navigate("Home")}
+      />
+      <ChatScreen />
+    </View>
+  );
+}
+
 function Home({ navigation }) {
   return (
     <View style={styles.pageContainer}>
       <TopBar
         title="Inbox"
-        icon="times"
-        color="white"
+        icon="comment-alt"
+        color="black"
         solid
-        // onPress={() => navigation.navigate("Chat")}
+        onPress={() => navigation.navigate("Chat")}
       />
       <FlatList
         data={notifData}
@@ -61,7 +77,8 @@ const Notif = () => {
           }}
         >
           <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="Chat" component={Chats} />
+          <Stack.Screen name="Chat" component={Chat1} />
+          <Stack.Screen name="ChatScreen" component={ChatScreen1} />
         </Stack.Navigator>
       </NavigationContainer>
     );

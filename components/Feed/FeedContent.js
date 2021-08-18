@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   StyleSheet,
   Dimensions,
-  StatusBar,
   Image,
 } from "react-native";
 import { Video, AVPlaybackStatus } from "expo-av";
@@ -84,28 +83,46 @@ const FeedContent = (props) => {
             style={{
               fontSize: 15,
               color: "white",
-              marginBottom: 10,
+              marginBottom: 20,
               ...styles.shadow,
             }}
           >
             {postName}
           </Text>
-          <TouchableOpacity
-            style={{ flexDirection: "row", alignItems: "center" }}
-          >
-            <Image source={userPic} style={styles.userPic} />
-            <Text
-              style={{
-                fontWeight: "bold",
-                fontSize: 16,
-                color: "white",
-                marginRight: 10,
-                ...styles.shadow,
-              }}
+          <View style={{ flexDirection: "row" }}>
+            <TouchableOpacity
+              style={{ flexDirection: "row", alignItems: "center" }}
             >
-              {userName}
-            </Text>
-          </TouchableOpacity>
+              <Image source={userPic} style={styles.userPic} />
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  fontSize: 16,
+                  color: "white",
+                  marginRight: 10,
+                  ...styles.shadow,
+                }}
+              >
+                {userName}
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{ flexDirection: "row", alignItems: "center" }}
+              onPress={() => alert("Followed")}
+            >
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  fontSize: 16,
+                  color: "#57f9dc",
+                  marginLeft: 20,
+                  ...styles.shadow,
+                }}
+              >
+                Follow
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
         <View style={styles.interact}>
           <BtnInteract
@@ -150,9 +167,10 @@ const styles = StyleSheet.create({
     right: 20,
   },
   user: {
-    top: "35%",
+    top: "30%",
     paddingHorizontal: 20,
     flexDirection: "column",
+    // backgroundColor: "red",
   },
   userPic: {
     width: 40,

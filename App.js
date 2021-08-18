@@ -1,18 +1,3 @@
-// import React from "react";
-// import { StyleSheet, Text, View } from "react-native";
-
-// const App = () => {
-//   return (
-//     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-//       <Text>Hello test</Text>
-//     </View>
-//   );
-// };
-
-// export default App;
-
-// const styles = StyleSheet.create({});
-
 import React from "react";
 import { StyleSheet, View, TouchableOpacity } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
@@ -64,7 +49,8 @@ const App = () => {
   return (
     <NavigationContainer name="base">
       <Tab.Navigator
-        initialRouteName="Profile"
+        // initialRouteName="Profile"
+        initialRouteName="Feed"
         // backBehavior="history"
         // name="root"
         tabBarOptions={{

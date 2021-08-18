@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
 const ProfTop = (props) => {
-  const { title, icon, onPress, color } = props;
+  const { title, icon, onPress, color, backgroundColor } = props;
   return (
     <View style={{ ...styles.container, ...styles.shadow }}>
       <Text style={styles.Title}>{title}</Text>
@@ -24,7 +24,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 15,
 
-    // backgroundColor: "white",
     // paddingHorizontal: 20,
     // paddingVertical: 30,
   },

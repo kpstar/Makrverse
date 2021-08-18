@@ -8,6 +8,7 @@ import {
   Dimensions,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
+import ProfStats1 from "./ProfStats1";
 import ProfStats from "./ProfStats";
 
 const ProfContent = (props) => {
@@ -40,13 +41,20 @@ const ProfContent = (props) => {
           Student at MIT, Aerospace Eng. Tech Enthusiast. Test test 123
         </Text>
       </View>
-      <View style={styles.group}>
-        <ProfStats title="Followers" count="120K" icon="users" goto="fol" />
-        <ProfStats title="Sold" count="120" icon="store" goto="sol" />
-      </View>
-      <View style={styles.group}>
-        <ProfStats title="Posts" count="69" icon="tools" goto="pos" />
-        <ProfStats title="Challenges" count="13" icon="trophy" goto="cha" />
+      <View
+        style={{
+          flexDirection: "row",
+          flex: 1,
+        }}
+      >
+        <View style={styles.groupStats}>
+          <ProfStats1 title="Inventions" count="69" icon="tools" />
+        </View>
+        <View style={styles.groupStats}>
+          <ProfStats title="Followers" count="120K" icon="users" goto="fol" />
+          <ProfStats title="Sold" count="120" icon="store" goto="sol" />
+          <ProfStats title="Challenges" count="13" icon="trophy" goto="cha" />
+        </View>
       </View>
     </View>
   );
@@ -62,6 +70,12 @@ const styles = StyleSheet.create({
   group: {
     justifyContent: "space-between",
     flexDirection: "row",
+    paddingHorizontal: 10,
+  },
+  groupStats: {
+    flex: 1,
+    justifyContent: "space-between",
+    flexDirection: "column",
     paddingHorizontal: 10,
   },
   group1a: {
@@ -87,5 +101,17 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: "grey",
     marginBottom: 5,
+  },
+  postCount: {
+    flex: 1,
+    borderColor: "#c1c1c1",
+    borderWidth: 2,
+    borderRadius: 20,
+    width: "100%",
+    padding: "5%",
+    marginBottom: "5%",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    flexDirection: "row",
   },
 });
